@@ -65,27 +65,33 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: Container(
-                  height: 90,
-                  width: 90,
-
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 20,
-                        color: Colors.green
+                child: Expanded(
+                  flex: 2,
+                  child: Container(
+                    height: 90,
+                    width: 90,
+                  
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 20,
+                          color: Colors.green
+                          
+                        ),
                         
-                      ),
-                      
-                    ],
-                    shape: BoxShape.circle
+                      ],
+                      shape: BoxShape.circle
+                    ),
+                    child: Image.asset("assets/images/pic.jpg"),
                   ),
-                  child: Image.asset("assets/images/pic.jpg"),
                 ),
               ),
-              Center(
-                child: 
-                Text("Hridoy")),
+              Expanded(
+                flex: 9,
+                child: Center(
+                  child: 
+                  Text("Hridoy", style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 20),)),
+              ),
             ],
           ),
         ),
