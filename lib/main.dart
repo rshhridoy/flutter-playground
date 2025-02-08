@@ -51,10 +51,16 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView.separated(itemBuilder: (context, index) {
           
           return ListTile(
-            leading: Text('${index+1}') ,
+            leading: Container(
+              height: 70,
+              width: 70,
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/images/pic.jpg'),
+              ),
+            ) ,
             title: Text(arrNames[index]),
             subtitle: Text("Dept of ${arrDept[index]}"),
-            trailing: Icon(Icons.qr_code),
+            trailing: Icon(Icons.call),
           );
         },
         itemCount: arrNames.length,
