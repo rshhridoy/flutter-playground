@@ -44,57 +44,111 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("RootRaider"),
       ),
       body:
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          height: 100,
-          width: 400,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            border: Border.all(width: 2, color: Colors.green),
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 10,
-                spreadRadius: 5,
-                color: Colors.green
-              )
-            ]
-          ),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Expanded(
-                  flex: 2,
-                  child: Container(
-                    height: 90,
-                    width: 90,
-                  
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 20,
-                          color: Colors.green
-                          
+      Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 100,
+              width: 400,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                border: Border.all(width: 2, color: Colors.green),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 10,
+                    spreadRadius: 5,
+                    color: Colors.green
+                  )
+                ]
+              ),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Expanded(
+                      flex: 2,
+                      child: Container(
+                        height: 90,
+                        width: 90,
+                      
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 20,
+                              color: Colors.green
+                              
+                            ),
+                            
+                          ],
+                          shape: BoxShape.circle
                         ),
-                        
-                      ],
-                      shape: BoxShape.circle
+                        child: Image.asset("assets/images/pic.jpg"),
+                      ),
                     ),
-                    child: Image.asset("assets/images/pic.jpg"),
                   ),
-                ),
+                  Expanded(
+                    flex: 9,
+                    child: Center(
+                      child: 
+                      Text("Hridoy", style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 20),)),
+                  ),
+          
+                  
+                ],
               ),
-              Expanded(
-                flex: 9,
-                child: Center(
-                  child: 
-                  Text("Hridoy", style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 20),)),
-              ),
-            ],
+            ),
           ),
-        ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            color: Colors.green,
+                          ),
+                        ),
+            
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            color: Colors.green,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 100,
+                            width: 200,
+                            color: Colors.green,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 100,
+                            width: 200,
+                            color: Colors.green,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 100,
+                            width: 200,
+                            color: Colors.green,
+                          ),
+                        )
+                      ],
+                    ),
+          )
+        ],
       )
        
     );
