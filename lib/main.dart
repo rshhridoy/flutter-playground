@@ -58,8 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundImage: AssetImage('assets/images/pic.jpg'),
               ),
             ) ,
-            title: Text(arrNames[index]),
-            subtitle: Text("Dept of ${arrDept[index]}"),
+            title: Text(arrNames[index], style: TextStyle(fontFamily: 'Oswald'),),
+            subtitle: Text("Dept of ${arrDept[index]}", style: TextStyle(fontFamily: 'Trajan Pro'),),
             trailing: Icon(Icons.call),
           );
         },
