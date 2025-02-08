@@ -38,168 +38,27 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
+    var arrNames = ['Hridoy', 'Ovi', 'Moon', 'Protik', 'Siam', 'Sujoy'];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text("RootRaider"),
       ),
       body:
-      SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 100,
-                width: 400,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  border: Border.all(width: 2, color: Colors.green),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 10,
-                      spreadRadius: 5,
-                      color: Colors.green
-                    )
-                  ]
-                ),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Expanded(
-                        flex: 2,
-                        child: Container(
-                          height: 90,
-                          width: 90,
-                        
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 20,
-                                color: Colors.green
-                                
-                              ),
-                              
-                            ],
-                            shape: BoxShape.circle
-                          ),
-                          child: Image.asset("assets/images/pic.jpg"),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 9,
-                      child: Center(
-                        child: 
-                        Text("Hridoy", style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 20),)),
-                    ),
-            
-                    
-                  ],
-                ),
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 100,
-                              width: 100,
-                              color: Colors.green,
-                            ),
-                          ),
-              
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 100,
-                              width: 100,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 100,
-                              width: 200,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 100,
-                              width: 200,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 100,
-                              width: 200,
-                              color: Colors.green,
-                            ),
-                          )
-                        ],
-                      ),
-            ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView.separated(itemBuilder: (context, index) {
+          
+          return Text(arrNames[index], style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green),);
+        },
+        itemCount: arrNames.length,
+        separatorBuilder: (context, index) {
+          return Divider(height: 100, thickness: 4,);
+        },
         
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 30),
-                      height: 200,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 10,
-                            spreadRadius: 5,
-                            color: Colors.green
-                          )
-                        ]
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Text('Dept of CSE', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.red),),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(50),
-                      height: 200,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.all(Radius.circular(10))
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 50, bottom: 50, right: 20, left: 20),
-                        child: ElevatedButton(onPressed: (){
-                                              
-                        }, child: Text("Press me", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green),)),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            )
-          ],
         ),
-      )
-       
+      ),
     );
   }
 }
