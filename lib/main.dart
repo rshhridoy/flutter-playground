@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     var arrNames = ['Hridoy', 'Ovi', 'Moon', 'Protik', 'Siam', 'Sujoy'];
-
+    var arrDept = ['CSE', 'CSE', 'SWE', 'BOKACHODA', 'ACCOUNTING', 'MEDICAL'];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -50,11 +50,16 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(8.0),
         child: ListView.separated(itemBuilder: (context, index) {
           
-          return Text(arrNames[index], style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green),);
+          return ListTile(
+            leading: Text('${index+1}') ,
+            title: Text(arrNames[index]),
+            subtitle: Text("Dept of ${arrDept[index]}"),
+            trailing: Icon(Icons.qr_code),
+          );
         },
         itemCount: arrNames.length,
         separatorBuilder: (context, index) {
-          return Divider(height: 100, thickness: 4,);
+          return Divider(height: 50, thickness: 4,);
         },
         
         ),
