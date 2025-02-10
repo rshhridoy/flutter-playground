@@ -16,10 +16,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
             seedColor: const Color.fromARGB(255, 63, 254, 57)),
         useMaterial3: true,
-        textTheme: const TextTheme(
-          headlineLarge: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          bodyMedium: TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
-        ),
+        textTheme: TextTheme(
+            headlineLarge: TextStyle(
+          fontSize: 40,
+          fontWeight: FontWeight.bold,
+        )),
       ),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Home'),
@@ -37,8 +38,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var arrNames = ['Shakil', 'Moon', 'Siam', 'Ovi'];
-
   @override
   Widget build(BuildContext context) {
     var arrNames = ['Hridoy', 'Ovi', 'Moon', 'Protik', 'Siam', 'Sujoy'];
@@ -61,10 +60,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               title: Text(arrNames[index],
-                  style: Theme.of(context).textTheme.headlineLarge),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineLarge!
+                      .copyWith(color: Colors.blueAccent)),
               subtitle: Text(
                 "Dept of ${arrDept[index]}",
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.amberAccent),
               ),
               trailing: Icon(Icons.call),
             );
