@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wscubetech/style/style.dart';
 
 void main() {
   runApp(const MyApp());
@@ -66,10 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       .copyWith(color: Colors.blueAccent)),
               subtitle: Text(
                 "Dept of ${arrDept[index]}",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(color: Colors.amberAccent),
+                style: textfont(),
               ),
               trailing: Icon(Icons.call),
             );
