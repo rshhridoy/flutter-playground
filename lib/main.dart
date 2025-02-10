@@ -13,8 +13,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 63, 254, 57)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 63, 254, 57)),
         useMaterial3: true,
+        textTheme: const TextTheme(
+          headlineLarge: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          bodyMedium: TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
+        ),
       ),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Home'),
@@ -32,42 +37,45 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  var arrNames= ['Shakil','Moon', 'Siam', 'Ovi'];
+  var arrNames = ['Shakil', 'Moon', 'Siam', 'Ovi'];
 
   @override
   Widget build(BuildContext context) {
-
     var arrNames = ['Hridoy', 'Ovi', 'Moon', 'Protik', 'Siam', 'Sujoy'];
     var arrDept = ['CSE', 'CSE', 'SWE', 'BOKACHODA', 'ACCOUNTING', 'MEDICAL'];
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.red,
         title: Text("RootRaider"),
       ),
-      body:
-      Padding(
+      body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ListView.separated(itemBuilder: (context, index) {
-          
-          return ListTile(
-            leading: Container(
-              height: 70,
-              width: 70,
-              child: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/pic.jpg'),
+        child: ListView.separated(
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: SizedBox(
+                height: 70,
+                width: 70,
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/pic.jpg'),
+                ),
               ),
-            ) ,
-            title: Text(arrNames[index], style: TextStyle(fontFamily: 'Oswald'),),
-            subtitle: Text("Dept of ${arrDept[index]}", style: TextStyle(fontFamily: 'Trajan Pro'),),
-            trailing: Icon(Icons.call),
-          );
-        },
-        itemCount: arrNames.length,
-        separatorBuilder: (context, index) {
-          return Divider(height: 50, thickness: 4,);
-        },
-        
+              title: Text(arrNames[index],
+                  style: Theme.of(context).textTheme.headlineLarge),
+              subtitle: Text(
+                "Dept of ${arrDept[index]}",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              trailing: Icon(Icons.call),
+            );
+          },
+          itemCount: arrNames.length,
+          separatorBuilder: (context, index) {
+            return Divider(
+              height: 50,
+              thickness: 4,
+            );
+          },
         ),
       ),
     );
