@@ -44,43 +44,25 @@ class _MyHomePageState extends State<MyHomePage> {
     var arrNames = ['Hridoy', 'Ovi', 'Moon', 'Protik', 'Siam', 'Sujoy'];
     var arrDept = ['CSE', 'CSE', 'SWE', 'BOKACHODA', 'ACCOUNTING', 'MEDICAL'];
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: Text("RootRaider"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView.separated(
-          itemBuilder: (context, index) {
-            return ListTile(
-              leading: SizedBox(
-                height: 70,
-                width: 70,
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/pic.jpg'),
-                ),
-              ),
-              title: Text(arrNames[index],
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineLarge!
-                      .copyWith(color: Colors.blueAccent)),
-              subtitle: Text(
-                "Dept of ${arrDept[index]}",
-                style: textfont(),
-              ),
-              trailing: Icon(Icons.call),
-            );
-          },
-          itemCount: arrNames.length,
-          separatorBuilder: (context, index) {
-            return Divider(
-              height: 50,
-              thickness: 4,
-            );
-          },
+        appBar: AppBar(
+          backgroundColor: Colors.red,
+          title: Text("RootRaider"),
         ),
-      ),
-    );
+        body: Container(
+          height: 1080,
+          width: 500,
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              return Card(
+                  child: Padding(
+                      padding: const EdgeInsets.all(50),
+                      child: Text(
+                        arrNames[index],
+                        style: customfont(),
+                      )));
+            },
+            itemCount: arrNames.length,
+          ),
+        ));
   }
 }
