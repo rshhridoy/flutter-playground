@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wscubetech/style/style.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,40 +40,81 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    var arrNames = ['Hridoy', 'Ovi', 'Moon', 'Protik', 'Siam', 'Sujoy'];
-    var arrDept = ['CSE', 'CSE', 'SWE', 'BOKACHODA', 'ACCOUNTING', 'MEDICAL'];
+    var emailText = TextEditingController();
+    var password = TextEditingController();
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: Text("RootRaider"),
-      ),
-      body: SizedBox(
-        height: 1080,
-        width: 500,
-        child: ListView.builder(
-          itemBuilder: (context, index) {
-            return Column(
-              children: [
-                Container(
-                  height: 200,
-                  child: ListTile(
-                    tileColor: Colors.redAccent,
-                    leading: Text("${index + 1}"),
-                    title: Text(arrNames[index]),
-                    subtitle: Text(arrDept[index]),
-                    trailing: Icon(Icons.arrow_forward),
-                  ),
-                ),
-                Divider(
-                  color: Colors.black45,
-                  thickness: 4,
-                ),
-              ],
-            );
-          },
-          itemCount: arrNames.length,
+        appBar: AppBar(
+          backgroundColor: Colors.red,
+          title: Text("RootRaider"),
         ),
-      ),
-    );
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Container(
+                margin: const EdgeInsets.all(20),
+                width: 300,
+                child: TextField(
+                  controller: emailText,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                      hintText: "Enter Your Email",
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide:
+                              BorderSide(color: Colors.redAccent, width: 3)),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                          )),
+                      disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.grey)),
+                      prefixIcon: Icon(Icons.email)),
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.all(20),
+              width: 300,
+              child: TextField(
+                controller: password,
+                obscureText: true,
+                obscuringCharacter: "*",
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    hintText: "Password",
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.redAccent),
+                        borderRadius: BorderRadius.circular(10)),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.black)),
+                    suffixIcon: IconButton(
+                        onPressed: () {}, icon: Icon(Icons.remove_red_eye)),
+                    prefixIcon: Icon(Icons.password)),
+              ),
+            ),
+            Center(
+              child: ElevatedButton(
+                  onPressed: () {
+                    String email = emailText.text.toString();
+                    String pass = password.text;
+
+                    print("Email: $email , Pass: $pass");
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.redAccent),
+                  child: Text(
+                    "Log In",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  )),
+            )
+          ],
+        ));
   }
 }
