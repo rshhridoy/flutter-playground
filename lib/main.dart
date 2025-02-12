@@ -44,25 +44,37 @@ class _MyHomePageState extends State<MyHomePage> {
     var arrNames = ['Hridoy', 'Ovi', 'Moon', 'Protik', 'Siam', 'Sujoy'];
     var arrDept = ['CSE', 'CSE', 'SWE', 'BOKACHODA', 'ACCOUNTING', 'MEDICAL'];
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: Text("RootRaider"),
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: Text("RootRaider"),
+      ),
+      body: SizedBox(
+        height: 1080,
+        width: 500,
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                Container(
+                  height: 200,
+                  child: ListTile(
+                    tileColor: Colors.redAccent,
+                    leading: Text("${index + 1}"),
+                    title: Text(arrNames[index]),
+                    subtitle: Text(arrDept[index]),
+                    trailing: Icon(Icons.arrow_forward),
+                  ),
+                ),
+                Divider(
+                  color: Colors.black45,
+                  thickness: 4,
+                ),
+              ],
+            );
+          },
+          itemCount: arrNames.length,
         ),
-        body: Container(
-          height: 1080,
-          width: 500,
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              return Card(
-                  child: Padding(
-                      padding: const EdgeInsets.all(50),
-                      child: Text(
-                        arrNames[index],
-                        style: customfont(),
-                      )));
-            },
-            itemCount: arrNames.length,
-          ),
-        ));
+      ),
+    );
   }
 }
