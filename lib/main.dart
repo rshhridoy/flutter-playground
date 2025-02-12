@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 63, 254, 57)),
+            seedColor: const Color.fromARGB(255, 254, 57, 57)),
         useMaterial3: true,
         textTheme: TextTheme(
             headlineLarge: TextStyle(
@@ -40,8 +40,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    var emailText = TextEditingController();
-    var password = TextEditingController();
+    var dateTime = DateTime.now();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
@@ -51,69 +50,19 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: Container(
-                margin: const EdgeInsets.all(20),
-                width: 300,
-                child: TextField(
-                  controller: emailText,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                      hintText: "Enter Your Email",
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide:
-                              BorderSide(color: Colors.redAccent, width: 3)),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            color: const Color.fromARGB(255, 0, 0, 0),
-                          )),
-                      disabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.grey)),
-                      prefixIcon: Icon(Icons.email)),
-                ),
+              child: Text(
+                "${dateTime.day}/${dateTime.month}/${dateTime.year}, ${dateTime.hour}:${dateTime.minute}:${dateTime.second}",
+                style: TextStyle(
+                    color: Colors.redAccent,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.all(20),
-              width: 300,
-              child: TextField(
-                controller: password,
-                obscureText: true,
-                obscuringCharacter: "*",
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                    hintText: "Password",
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.redAccent),
-                        borderRadius: BorderRadius.circular(10)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.black)),
-                    suffixIcon: IconButton(
-                        onPressed: () {}, icon: Icon(Icons.remove_red_eye)),
-                    prefixIcon: Icon(Icons.password)),
-              ),
-            ),
-            Center(
-              child: ElevatedButton(
-                  onPressed: () {
-                    String email = emailText.text.toString();
-                    String pass = password.text;
-
-                    print("Email: $email , Pass: $pass");
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.redAccent),
-                  child: Text(
-                    "Log In",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  )),
-            )
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {});
+                },
+                child: Text("Show Current DateTime"))
           ],
         ));
   }
