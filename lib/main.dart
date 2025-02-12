@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Center(
               child: Text(
-                "${dateTime.day}/${dateTime.month}/${dateTime.year}, ${dateTime.hour}:${dateTime.minute}:${dateTime.second}",
+                'Current Time: ${DateFormat('jms').format(dateTime)}, Current Date:${DateFormat('d E,y').format(dateTime)}',
                 style: TextStyle(
                     color: Colors.redAccent,
                     fontSize: 40,
