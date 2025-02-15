@@ -38,6 +38,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  execute() {
+    print('Hridoy');
+  }
+
   var arrColor = [
     Colors.red,
     Colors.blue,
@@ -55,20 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.red,
           title: Text("RootRaider"),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20),
-            itemBuilder: (context, index) {
-              return Container(
-                color: arrColor[index],
-              );
+        body: ElevatedButton(
+            onPressed: () {
+              return execute();
             },
-            itemCount: arrColor.length,
-          ),
-        ));
+            child: Text("Click Me")));
   }
 }
