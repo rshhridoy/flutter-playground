@@ -67,30 +67,69 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text("Custom Widget"),
         ),
         body: Container(
-          height: 300,
-          width: 300,
-          child: Stack(
+          height: double.infinity,
+          width: double.infinity,
+          child: Wrap(
+            direction: Axis.vertical,
+            alignment: WrapAlignment.spaceBetween,
+            spacing: 10,
+            runSpacing: 11,
             children: [
               Container(
-                height: 200,
-                width: 200,
+                height: 100,
+                width: 100,
+                color: Colors.red,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.purple,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.tealAccent,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.limeAccent,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.indigoAccent,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.deepOrangeAccent,
+              ),
+              Container(
+                height: 100,
+                width: 100,
                 color: Colors.grey,
               ),
-              Positioned(
-                left: 40,
-                top: 40,
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  decoration: BoxDecoration(color: Colors.yellow, boxShadow: [
-                    BoxShadow(
-                        color: Colors.black54,
-                        blurRadius: 7,
-                        spreadRadius: 8,
-                        blurStyle: BlurStyle.outer)
-                  ]),
-                ),
-              )
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.pink,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.yellow,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.green,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.blue,
+              ),
             ],
           ),
         ));
