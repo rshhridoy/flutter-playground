@@ -66,123 +66,27 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.red,
           title: Text("Custom Widget"),
         ),
-        body: Column(
-          children: [ActiveSec(), Message(), Photos(), Member()],
-        ));
-  }
-}
-
-class ActiveSec extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Container(
-        height: 10,
-        color: Colors.blueAccent,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.all(11),
-            child: SizedBox(
-              width: 80,
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
+        body: Container(
+          height: 300,
+          width: 300,
+          child: Stack(
+            children: [
+              Container(
+                height: 200,
+                width: 200,
+                color: Colors.grey,
               ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Message extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: 4,
-      child: Container(
-          height: 200,
-          color: Colors.orangeAccent,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ListView.builder(
-              itemBuilder: (context, index) => ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.white,
-                ),
-                title: Text(
-                  "Name",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                ),
-                subtitle: Text(
-                  "Unread Message!!",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
-                ),
-                trailing: Icon(
-                  Icons.panorama_outlined,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          )),
-    );
-  }
-}
-
-class Photos extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Container(
-          height: 200,
-          color: Colors.greenAccent,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(11),
-              child: SizedBox(
-                width: 185,
+              Positioned(
+                left: 40,
+                top: 40,
                 child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(11)),
+                  height: 200,
+                  width: 200,
+                  color: Colors.yellow,
                 ),
-              ),
-            ),
-          )),
-    );
-  }
-}
-
-class Member extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Container(
-        height: 200,
-        color: Colors.grey,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.all(11),
-            child: SizedBox(
-              width: 95,
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(11)),
-              ),
-            ),
+              )
+            ],
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
