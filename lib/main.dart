@@ -82,7 +82,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Container(
                   height: 200,
                   width: 200,
-                  color: Colors.yellow,
+                  decoration: BoxDecoration(color: Colors.yellow, boxShadow: [
+                    BoxShadow(
+                        color: Colors.black54,
+                        blurRadius: 7,
+                        spreadRadius: 8,
+                        blurStyle: BlurStyle.outer)
+                  ]),
                 ),
               )
             ],
