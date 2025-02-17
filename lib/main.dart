@@ -66,71 +66,74 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.red,
           title: Text("Custom Widget"),
         ),
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          child: Wrap(
-            direction: Axis.vertical,
-            alignment: WrapAlignment.spaceBetween,
-            spacing: 10,
-            runSpacing: 11,
-            children: [
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.red,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.purple,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.tealAccent,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.limeAccent,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.indigoAccent,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.deepOrangeAccent,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.grey,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.pink,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.yellow,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.green,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.blue,
-              ),
-            ],
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            height: double.infinity,
+            width: double.infinity,
+            child: Wrap(
+              direction: Axis.vertical,
+              alignment: WrapAlignment.spaceBetween,
+              spacing: 10,
+              runSpacing: 11,
+              children: [
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.red,
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.purple,
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.tealAccent,
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.limeAccent,
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.indigoAccent,
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.deepOrangeAccent,
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.grey,
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.pink,
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.yellow,
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.green,
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.blue,
+                ),
+              ],
+            ),
           ),
         ));
   }
