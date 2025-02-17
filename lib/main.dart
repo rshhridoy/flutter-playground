@@ -67,28 +67,47 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.red,
           title: Center(
               child: Text(
-            "Icons & Font Awesome Icons",
+            "Positioned",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           )),
         ),
-        body: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Icon(
-                Icons.play_circle_fill,
-                size: 70,
-                color: Colors.redAccent,
-              ),
-              SizedBox(
-                width: 20,
-                child: FaIcon(
-                  FontAwesomeIcons.googleDrive,
-                  color: Colors.redAccent,
-                  size: 40,
+        body: SizedBox(
+          height: 300,
+          width: 300,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Stack(
+              children: [
+                Container(
+                  height: 300,
+                  width: 300,
+                  color: Colors.green,
                 ),
-              )
-            ],
+                Center(
+                  child: Container(
+                    height: 200,
+                    width: 200,
+                    color: Colors.blue,
+                  ),
+                ),
+                Positioned(
+                  right: 31,
+                  bottom: 31,
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        boxShadow: [
+                          BoxShadow(
+                              blurRadius: 8,
+                              blurStyle: BlurStyle.outer,
+                              color: Colors.redAccent)
+                        ]),
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }
