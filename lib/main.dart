@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -64,32 +65,31 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
-          title: Text("Custom Widget"),
+          title: Center(
+              child: Text(
+            "Icons & Font Awesome Icons",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          )),
         ),
-        body: RichText(
-            text: TextSpan(
-                style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.redAccent),
-                children: [
-              TextSpan(
-                text: "Hello",
+        body: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Icon(
+                Icons.play_circle_fill,
+                size: 70,
+                color: Colors.redAccent,
               ),
-              TextSpan(
-                  text: " World!!!!",
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.brown)),
-              TextSpan(text: " This is"),
-              TextSpan(
-                  text: " Flutter....",
-                  style: TextStyle(
-                      fontFamily: "Oswald",
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.orangeAccent))
-            ])));
+              SizedBox(
+                width: 20,
+                child: FaIcon(
+                  FontAwesomeIcons.googleDrive,
+                  color: Colors.redAccent,
+                  size: 40,
+                ),
+              )
+            ],
+          ),
+        ));
   }
 }
