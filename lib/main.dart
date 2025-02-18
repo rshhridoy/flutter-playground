@@ -71,43 +71,57 @@ class _MyHomePageState extends State<MyHomePage> {
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           )),
         ),
-        body: SizedBox(
-          height: 300,
-          width: 300,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Stack(
-              children: [
-                Container(
-                  height: 300,
-                  width: 300,
-                  color: Colors.green,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ConstrainedBox(
+                constraints: BoxConstraints(maxHeight: 20, maxWidth: 350),
+                child: Text(
+                  "Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy",
+                  style: TextStyle(overflow: TextOverflow.ellipsis),
                 ),
-                Center(
-                  child: Container(
-                    height: 200,
-                    width: 200,
-                    color: Colors.blue,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 40, bottom: 40),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 350),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20))),
                   ),
                 ),
-                Positioned(
-                  right: 31,
-                  bottom: 31,
-                  child: Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                        color: Colors.redAccent,
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 8,
-                              blurStyle: BlurStyle.outer,
-                              color: Colors.redAccent)
-                        ]),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 40),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 350),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: "Password",
+                        suffixIcon: Icon(Icons.remove_red_eye_rounded),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20))),
                   ),
-                )
-              ],
-            ),
+                ),
+              ),
+              ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 500, maxHeight: 200),
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            WidgetStatePropertyAll(Colors.redAccent)),
+                    onPressed: () {},
+                    child: Text(
+                      "LogIn",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
+                    )),
+              )
+            ],
           ),
         ));
   }
