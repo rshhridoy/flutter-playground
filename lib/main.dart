@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wscubetech/Expresso.dart';
 import 'package:wscubetech/StartingScreen.dart';
+import 'package:wscubetech/splashScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         )),
       ),
       debugShowCheckedModeBanner: false,
-      home: Startingscreen(),
+      home: Splashscreen(),
     );
   }
 }

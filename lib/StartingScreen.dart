@@ -12,7 +12,7 @@ class Startingscreen extends StatelessWidget {
             Text(
               "Welcome",
               style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 40,
                   fontWeight: FontWeight.bold,
                   color: Colors.teal[300]),
             ),
