@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wscubetech/Expresso.dart';
+import 'package:wscubetech/StartingScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
         )),
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Home'),
+      home: Startingscreen(),
     );
   }
 }
@@ -63,12 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           backgroundColor: Colors.red,
-          title: Center(
-              child: Text(
-            "Positioned",
+          title: Text(
+            "Expresso",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          )),
+          ),
         ),
         body: Center(
           child: Column(
@@ -110,7 +112,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       minimumSize: WidgetStatePropertyAll(Size(350, 100)),
                       backgroundColor:
                           WidgetStatePropertyAll(Colors.redAccent)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Expresso(),
+                        ));
+                  },
                   child: Text(
                     "LogIn",
                     style: TextStyle(
