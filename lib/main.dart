@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -106,21 +105,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 500, maxHeight: 200),
-                child: ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            WidgetStatePropertyAll(Colors.redAccent)),
-                    onPressed: () {},
-                    child: Text(
-                      "LogIn",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    )),
-              )
+              ElevatedButton(
+                  style: ButtonStyle(
+                      minimumSize: WidgetStatePropertyAll(Size(350, 100)),
+                      backgroundColor:
+                          WidgetStatePropertyAll(Colors.redAccent)),
+                  onPressed: () {},
+                  child: Text(
+                    "LogIn",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ))
             ],
           ),
         ));
