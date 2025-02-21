@@ -43,29 +43,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var namecontroller = TextEditingController();
 
-  var arrNames = [
-    'Hridoy',
-    'Moon',
-    'Sohan',
-    'Shakib',
-    'Niloy',
-    'Mugdho',
-    'Shadid',
-    'Abid'
-  ];
+  RangeValues values = RangeValues(0, 1);
 
-  var arrColor = [
-    Colors.red,
-    Colors.blue,
-    Colors.green,
-    Colors.yellow,
-    Colors.transparent,
-    Colors.indigo,
-    Colors.purple,
-    Colors.cyan
-  ];
   @override
   Widget build(BuildContext context) {
+    RangeLabels labels =
+        RangeLabels(values.start.toString(), values.end.toString());
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -127,6 +110,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   Icons.login,
                   color: Colors.white,
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(60),
+                child: RangeSlider(
+                    values: values,
+                    labels: labels,
+                    divisions: 10,
+                    onChanged: (newvalue) {
+                      values = newvalue;
+                      setState(() {
+                        values = newvalue;
+                      });
+                    }),
               )
             ],
           ),
