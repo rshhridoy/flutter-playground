@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wscubetech/StartingScreen.dart';
 
 class Expresso extends StatelessWidget {
-  const Expresso({super.key});
+  var nameFromHome;
+
+  Expresso(this.nameFromHome);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class Expresso extends StatelessWidget {
                         color: Colors.brown),
                     children: [
                   TextSpan(
-                      text: "Hello!!!, ",
+                      text: "Hello!!!, $nameFromHome ",
                       style: TextStyle(fontSize: 25, color: Colors.teal[300])),
                   TextSpan(text: "This is "),
                   TextSpan(

@@ -41,6 +41,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var namecontroller = TextEditingController();
+
   var arrNames = [
     'Hridoy',
     'Moon',
@@ -77,11 +79,14 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ConstrainedBox(
-                constraints: BoxConstraints(maxHeight: 20, maxWidth: 350),
-                child: Text(
-                  "Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy Hridoy",
-                  style: TextStyle(overflow: TextOverflow.ellipsis),
+              SizedBox(
+                width: 350,
+                child: TextField(
+                  controller: namecontroller,
+                  decoration: InputDecoration(
+                      hintText: "Name",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15))),
                 ),
               ),
               Padding(
@@ -112,7 +117,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 btnName: "  Login",
                 textStyle:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                callback: () => Expresso(),
+                callback: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          Expresso(namecontroller.text.toString()),
+                    )),
                 icon: Icon(
                   Icons.login,
                   color: Colors.white,

@@ -21,7 +21,9 @@ class RectengularButton extends StatelessWidget {
       width: 350,
       child: ElevatedButton(
         onPressed: () {
-          callback;
+          if (callback != null) {
+            callback!();
+          }
         },
         style: ElevatedButton.styleFrom(
             backgroundColor: bgColor,
