@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:wscubetech/StartingScreen.dart';
 
 class Expresso extends StatelessWidget {
+  const Expresso({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

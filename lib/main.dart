@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wscubetech/Expresso.dart';
-import 'package:wscubetech/StartingScreen.dart';
 import 'package:wscubetech/splashScreen.dart';
+import 'package:wscubetech/widets/rectengular_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -108,25 +108,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              ElevatedButton(
-                  style: ButtonStyle(
-                      minimumSize: WidgetStatePropertyAll(Size(350, 100)),
-                      backgroundColor:
-                          WidgetStatePropertyAll(Colors.redAccent)),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Expresso(),
-                        ));
-                  },
-                  child: Text(
-                    "LogIn",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ))
+              RectengularButton(
+                btnName: "  Login",
+                textStyle:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                callback: () => Expresso(),
+                icon: Icon(
+                  Icons.login,
+                  color: Colors.white,
+                ),
+              )
             ],
           ),
         ));
