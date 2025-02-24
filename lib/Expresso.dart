@@ -11,11 +11,12 @@ class Expresso extends StatefulWidget {
 }
 
 class _ExpressoState extends State<Expresso> {
-  var _decoration;
+  Decoration _decoration = BoxDecoration(
+      borderRadius: BorderRadius.circular(20), color: Colors.brown);
 
-  var _height;
+  var _height = 200.0;
 
-  var _width;
+  var _width = 150.0;
 
   bool _change = true;
 
@@ -57,8 +58,9 @@ class _ExpressoState extends State<Expresso> {
                         text: "${widget.nameFromHome}.  ",
                         style: TextStyle(
                             fontFamily: "Trajan Pro",
-                            fontSize: 50,
-                            fontWeight: FontWeight.bold)),
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.amber)),
                     TextSpan(text: "This is "),
                     TextSpan(
                         text: "Sabrina Carpenter",
@@ -89,20 +91,20 @@ class _ExpressoState extends State<Expresso> {
             ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    if (true) {
+                    if (_change) {
+                      _height = 150.0;
+                      _width = 350.0;
+                      _decoration = BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.blueGrey);
+                      _change = false;
+                    } else {
                       _height = 200.0;
-                      _width = 100.0;
+                      _width = 150.0;
                       _decoration = BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.brown,
                       );
-                      _change = false;
-                    } else {
-                      _height = 100.0;
-                      _width = 200.0;
-                      _decoration = BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.pinkAccent);
                       _change = true;
                     }
                   });
