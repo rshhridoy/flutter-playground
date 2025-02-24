@@ -20,6 +20,8 @@ class _ExpressoState extends State<Expresso> {
 
   bool _change = true;
 
+  double cop = 1.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,7 +111,33 @@ class _ExpressoState extends State<Expresso> {
                     }
                   });
                 },
-                child: Text("Change Resolution"))
+                child: Text("Change Resolution")),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: AnimatedOpacity(
+                opacity: cop,
+                duration: Duration(seconds: 2),
+                curve: Curves.elasticInOut,
+                child: Container(
+                  height: 100,
+                  width: 200,
+                  color: Colors.brown,
+                ),
+              ),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    if (_change) {
+                      cop = 0.0;
+                      _change = false;
+                    } else {
+                      cop = 1.0;
+                      _change = true;
+                    }
+                  });
+                },
+                child: Text("Close"))
           ],
         ),
       ),
