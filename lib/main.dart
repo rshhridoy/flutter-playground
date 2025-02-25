@@ -123,15 +123,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         values = newvalue;
                       });
                     }),
-              ),
-              AnimatedOpacity(
-                opacity: 1,
-                duration: Duration(seconds: 2),
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  color: Colors.brown,
-                ),
               )
             ],
           ),
