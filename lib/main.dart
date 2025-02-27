@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wscubetech/Expresso.dart';
-import 'package:wscubetech/splashScreen.dart';
-import 'package:wscubetech/widets/rectengular_button.dart';
+import 'package:wscubetech/detailedPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +24,7 @@ class MyApp extends StatelessWidget {
         )),
       ),
       debugShowCheckedModeBanner: false,
-      home: Splashscreen(),
+      home: MyHomePage(title: "Hero"),
     );
   }
 }
@@ -47,8 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    RangeLabels labels =
-        RangeLabels(values.start.toString(), values.end.toString());
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -58,72 +54,38 @@ class _MyHomePageState extends State<MyHomePage> {
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
-        body: Center(
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 350,
-                child: TextField(
-                  controller: namecontroller,
-                  decoration: InputDecoration(
-                      hintText: "Name",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15))),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Detailedpage(),
+                      ));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 100,
+                      height: 100,
+                      child: Hero(
+                          tag: 'background',
+                          child: Image.asset(
+                              'assets/images/sabrina-carpenter-alan-walker-song.jpg')),
+                    ),
+                    Text(
+                      "Sabrina Carpenter",
+                      style:
+                          TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+                    )
+                  ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 40, bottom: 40),
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 350),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 40),
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 350),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        hintText: "Password",
-                        suffixIcon: Icon(Icons.remove_red_eye_rounded),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                  ),
-                ),
-              ),
-              RectengularButton(
-                btnName: "  Login",
-                textStyle:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                callback: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          Expresso(namecontroller.text.toString()),
-                    )),
-                icon: Icon(
-                  Icons.login,
-                  color: Colors.white,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(60),
-                child: RangeSlider(
-                    values: values,
-                    labels: labels,
-                    divisions: 10,
-                    onChanged: (newvalue) {
-                      values = newvalue;
-                      setState(() {
-                        values = newvalue;
-                      });
-                    }),
-              )
             ],
           ),
         ));
