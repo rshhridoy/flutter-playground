@@ -39,9 +39,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var namecontroller = TextEditingController();
-
-  RangeValues values = RangeValues(0, 1);
+  var arrindex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
   @override
   Widget build(BuildContext context) {
@@ -55,39 +53,20 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Detailedpage(),
-                      ));
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 100,
-                      height: 100,
-                      child: Hero(
-                          tag: 'background',
-                          child: Image.asset(
-                              'assets/images/sabrina-carpenter-alan-walker-song.jpg')),
-                    ),
-                    Text(
-                      "Sabrina Carpenter",
-                      style:
-                          TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
+          padding: const EdgeInsets.all(8.0),
+          child: ListWheelScrollView(
+              itemExtent: 150,
+              children: arrindex
+                  .map((value) => Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: Colors.blueAccent,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(color: Colors.grey, blurRadius: 7)
+                            ]),
+                      ))
+                  .toList()),
         ));
   }
 }
