@@ -51,21 +51,35 @@ class _MyHomePageState extends State<MyHomePage> {
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: ClipRRect(
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(21)),
-              child: Container(
-                width: 400,
-                height: 200,
-                color: Colors.grey,
-                child: Image.asset(
-                  'assets/images/pic.jpg',
-                  fit: BoxFit.fill,
+        body: Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    Color(0xffa1c4fd),
+                    Color(0xffc2e9fb),
+                    Color(0xff84fab0)
+                  ],
+                  begin: FractionalOffset(1, 0),
+                  end: FractionalOffset(0, 1),
+                  stops: [0.0, 0.3, 1.0])),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: Container(
+                  width: 200,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                        colors: [Color(0xfffee140), Color(0xfffa709a)],
+                        center: Alignment.topRight,
+                        stops: [0.9, 1.0]),
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
         ));
   }
