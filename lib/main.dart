@@ -95,21 +95,15 @@ class _MyHomePageState extends State<MyHomePage> {
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
-        body: ListView.separated(
-            itemBuilder: (context, index) {
-              return ListTile(
-                leading: Text(
-                  "${index + 1}",
-                  style: TextStyle(fontSize: 20),
-                ),
-                title: Text(arrNames[index]),
-                subtitle: Text(arrDepartments[index]),
-              );
-            },
-            separatorBuilder: (context, index) => Divider(
-                  height: 100,
-                  thickness: 7,
-                ),
-            itemCount: arrNames.length));
+        body: ListView(
+            children: arrNames.map((value) {
+          return Container(
+              height: 50,
+              margin: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.lightBlueAccent),
+              child: Center(child: Text(value)));
+        }).toList()));
   }
 }
