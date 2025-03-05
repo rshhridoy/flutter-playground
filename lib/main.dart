@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wscubetech/detailedPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,19 +53,20 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: ListWheelScrollView(
-              itemExtent: 150,
-              children: arrindex
-                  .map((value) => Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Colors.blueAccent,
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(color: Colors.grey, blurRadius: 7)
-                            ]),
-                      ))
-                  .toList()),
+          child: Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(21)),
+              child: Container(
+                width: 400,
+                height: 200,
+                color: Colors.grey,
+                child: Image.asset(
+                  'assets/images/pic.jpg',
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          ),
         ));
   }
 }
