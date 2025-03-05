@@ -38,7 +38,51 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var arrindex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  var arrNames = [
+    "Alice",
+    "Bob",
+    "Charlie",
+    "David",
+    "Emma",
+    "Fiona",
+    "George",
+    "Hannah",
+    "Isaac",
+    "Jack",
+    "Katie",
+    "Liam",
+    "Mia",
+    "Noah",
+    "Olivia",
+    "Peter",
+    "Quinn",
+    "Rachel",
+    "Samuel",
+    "Taylor"
+  ];
+
+  var arrDepartments = [
+    "Computer Science",
+    "Electrical Engineering",
+    "Mechanical Engineering",
+    "Civil Engineering",
+    "Biotechnology",
+    "Business Administration",
+    "Mathematics",
+    "Physics",
+    "Chemistry",
+    "Biology",
+    "Economics",
+    "Psychology",
+    "Sociology",
+    "Political Science",
+    "History",
+    "Philosophy",
+    "Environmental Science",
+    "Medicine",
+    "Law",
+    "Education"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -51,36 +95,21 @@ class _MyHomePageState extends State<MyHomePage> {
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [
-                    Color(0xffa1c4fd),
-                    Color(0xffc2e9fb),
-                    Color(0xff84fab0)
-                  ],
-                  begin: FractionalOffset(1, 0),
-                  end: FractionalOffset(0, 1),
-                  stops: [0.0, 0.3, 1.0])),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                child: Container(
-                  width: 200,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    gradient: RadialGradient(
-                        colors: [Color(0xfffee140), Color(0xfffa709a)],
-                        center: Alignment.topRight,
-                        stops: [0.9, 1.0]),
-                  ),
+        body: ListView.separated(
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading: Text(
+                  "${index + 1}",
+                  style: TextStyle(fontSize: 20),
                 ),
-              ),
-            ],
-          ),
-        ));
+                title: Text(arrNames[index]),
+                subtitle: Text(arrDepartments[index]),
+              );
+            },
+            separatorBuilder: (context, index) => Divider(
+                  height: 100,
+                  thickness: 7,
+                ),
+            itemCount: arrNames.length));
   }
 }
