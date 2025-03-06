@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,28 +39,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var arrContacts = {
-    1: {"name": "Alice", "mobileNo": "1234567890", "unread": 5},
-    2: {"name": "Bob", "mobileNo": "2345678901", "unread": 2},
-    3: {"name": "Charlie", "mobileNo": "3456789012", "unread": 0},
-    4: {"name": "David", "mobileNo": "4567890123", "unread": 7},
-    5: {"name": "Eve", "mobileNo": "5678901234", "unread": 1},
-    6: {"name": "Frank", "mobileNo": "6789012345", "unread": 3},
-    7: {"name": "Grace", "mobileNo": "7890123456", "unread": 0},
-    8: {"name": "Hannah", "mobileNo": "8901234567", "unread": 6},
-    9: {"name": "Isaac", "mobileNo": "9012345678", "unread": 4},
-    10: {"name": "Jack", "mobileNo": "0123456789", "unread": 0},
-    11: {"name": "Karen", "mobileNo": "1112223333", "unread": 2},
-    12: {"name": "Leo", "mobileNo": "2223334444", "unread": 9},
-    13: {"name": "Mia", "mobileNo": "3334445555", "unread": 0},
-    14: {"name": "Noah", "mobileNo": "4445556666", "unread": 8},
-    15: {"name": "Olivia", "mobileNo": "5556667777", "unread": 3},
-    16: {"name": "Paul", "mobileNo": "6667778888", "unread": 0},
-    17: {"name": "Quinn", "mobileNo": "7778889999", "unread": 5},
-    18: {"name": "Ryan", "mobileNo": "8889990000", "unread": 1},
-    19: {"name": "Sophia", "mobileNo": "9990001111", "unread": 4},
-    20: {"name": "Tom", "mobileNo": "0001112222", "unread": 0},
-  };
+  var nameController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    //Can't async initstate
+    getvalue();
+  }
+
+  var nameValue = "No Name Saved";
 
   @override
   Widget build(BuildContext context) {
@@ -68,23 +57,66 @@ class _MyHomePageState extends State<MyHomePage> {
           centerTitle: true,
           backgroundColor: Colors.red,
           title: Text(
-            "Expresso",
+            "Shared Preference",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
-        body: ListView(
-            children: arrContacts.values.map((value) {
-          return ListTile(
-            leading: Icon(Icons.account_circle_sharp),
-            title: Text(value["name"].toString()),
-            subtitle: Text(value["mobileNo"].toString()),
-            trailing: CircleAvatar(
-                radius: 10,
-                backgroundColor: Colors.redAccent,
-                child: Text(
-                  value["unread"].toString(),
-                )),
-          );
-        }).toList()));
+        body: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 300,
+                child: TextField(
+                  controller: nameController,
+                  decoration: InputDecoration(
+                      label: Text("Enter Your Name"),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21))),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          WidgetStateProperty.all(Colors.redAccent[400])),
+                  onPressed: () async {
+                    var name = nameController.text.toString();
+                    var prefs = await SharedPreferences.getInstance();
+
+                    prefs.setString("name", name);
+                  },
+                  child: Text(
+                    "Save",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  )),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                nameValue,
+                style: TextStyle(
+                    fontFamily: "Oswald",
+                    color: Colors.redAccent[400],
+                    fontSize: 30),
+              )
+            ],
+          ),
+        ));
+  }
+
+  void getvalue() async {
+    var prefs = await SharedPreferences.getInstance();
+
+    var getName = prefs.getString("name");
+
+    setState(() {
+      nameValue = getName ?? "No Name Saved";
+    });
   }
 }
