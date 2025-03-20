@@ -2,6 +2,7 @@ C/C++ Structured LogW
 U
 SC:\Android_sdk\flutter\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
+<<<<<<< HEAD
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	‚Â ñÙ2§ ²ÿ‰Ù×2}
 {
 yE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\additional_project_files.txt	‚Â ñÙ2 Š‚±ðÙ2z
@@ -26,3 +27,29 @@ q
 oE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\prefab_config.json	‚Â ñÙ2( ­‚±ðÙ2x
 v
 tE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\symbol_folder_index.txt	‚Â ñÙ2k ®‚±ðÙ2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	«‘Õå×2§ ²ÿ‰Ù×2}
+{
+yE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\additional_project_files.txt	¬‘Õå×2 ÕÕå×2z
+x
+vE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\android_gradle_build.json	¬‘Õå×2Ý æÕå×2
+}
+{E:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\android_gradle_build_mini.json	¬‘Õå×2¸ õÕå×2l
+j
+hE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\build.ninja	¬‘Õå×2Õ €Õå×2p
+n
+lE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\build.ninja.txt	¬‘Õå×2u
+s
+qE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\build_file_index.txt	¬‘Õå×2S ýÕå×2v
+t
+rE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\compile_commands.json	¬‘Õå×2	z
+x
+vE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\compile_commands.json.bin	¬‘Õå×2
+€
+~
+|E:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\metadata_generation_command.txt	¬‘Õå×2	 ûÕå×2s
+q
+oE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\prefab_config.json	¬‘Õå×2( ûÕå×2x
+v
+tE:\studies\Personal Dev\flutter Project\wscubetech\android\app\.cxx\Debug\1hw1cw3m\arm64-v8a\symbol_folder_index.txt	¬‘Õå×2k üÕå×2
+>>>>>>> 7af5765996a6361054628a99567d4b94cfae5b2d

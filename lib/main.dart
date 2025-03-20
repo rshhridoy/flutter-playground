@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wscubetech/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -6,47 +7,30 @@ void main() {
 
 class MyApp extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    return MyHomePage();
-  }
+  State<MyApp> createState() => _MyAppState();
 }
 
-class MyHomePage extends State<MyApp> {
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Hero",
-            style: TextStyle(color: Colors.white),
-          ),
-          centerTitle: true,
-          backgroundColor: Colors.blue,
-          toolbarHeight: 100,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.search,
-                    color: Colors.white,
-                  )),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.more_vert,
-                    color: Colors.white,
-                  )),
-            ),
-          ],
-        ),
-        body: Container(),
+      home: Splash(),
+    );
+  }
+}
+
+class MyHomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: [
+          ListTile(
+            title: Text("Daffodil International University"),
+            subtitle: Text('Sec: 60_C'),
+          )
+        ],
       ),
     );
   }
